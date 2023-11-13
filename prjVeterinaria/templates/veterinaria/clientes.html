@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Clientes{% endblock %}
+{% block titulo_principal %}Lista de Clientes{% endblock %}
+{% block principal %}
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Tipo Doc</th>
+                <th>N° de Doc</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        {% for cliente in clientes %}
+        <tr>
+            <td><a href="{% url 'detalle_cliente' cliente.id %}">{{ cliente.nombre }}</a></td>
+            <td>{{ cliente.apellido }}</td>
+            <td>{{ cliente.tipo_doc }}</td>
+            <td>{{ cliente.nro_doc }}</td>
+            <td><a href="{% url 'modificar_cliente' cliente.id %}"><img src="{% static 'img/editar.png' %}" width="30" height="30"></a></td>
+            <td><a href="{% url 'eliminar_cliente' cliente.id %}"><img src="{% static 'img/basura.png' %}" width="30" height="30"></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<button type="submit" class="btn btn-light" onclick="window.location.href='{% url 'nuevo_cliente' %}'">Añadir nuevo cliente</button>
+<button class="btn btn-light" type="button" onclick="goBack()">Volver</button>
+{% endblock %}

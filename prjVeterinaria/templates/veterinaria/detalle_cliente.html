@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block titulo %}Cliente{% endblock %}
+{% block titulo_secundario %}Detalle cliente {{cliente.nombre}} {{cliente.apellido}}{% endblock %}
+{% block principal %}
+
+<div class="container my-5">
+  <div class="card mx-auto" style="width: 18rem;">
+     <h6 class="card-title">Nombre: </h6>
+        <p class="card-text">{{ cliente.nombre }}</p>
+        <h6>Apellido: </h6>
+        <p>{{ cliente.apellido }}</p>
+        <h6>Edad: </h6>
+        <p>{{ cliente.edad }}</p>
+        <h6>Tipo Doc: </h6>
+        <p>{{ cliente.tipo_doc }}</p>
+        <h6>N° de Doc: </h6>
+        <p>{{ cliente.nro_doc }}</p>
+        <h6>Fecha de Nac.: </h6>
+        <p>{{ cliente.fecha_nac }}</p>
+        <h6>Tipo de IVA: </h6>
+        <p>{{ cliente.tipo_iva }}</p>
+        <h6>CUIT: </h6>
+        <p>{{ cliente.cuit }}</p>
+        <h6>Activo: </h6>
+        <p>{{ cliente.activo }}</p>
+        <h6>Email: </h6>
+        <p>{{ cliente.email }}</p>
+        <h6>Localidad: </h6>
+        <p>{{ cliente.localidad }}</p>
+        <h6>Telefono: </h6>
+        <p>{{ cliente.telefono }}</p>
+
+      <h5>Mascota</h5>
+        {% for mascota in mascotas %}
+        <br>
+         <h6>Nombre: </h6>
+         <p>{{ mascota.nombre }}</p>
+         <h6>Raza/Especia: </h6>
+         <p>{{ mascota.especie }}</p>
+         <h6>Edad: </h6>
+         <p>{{ mascota.edad }}</p>
+         <h6>Historial: </h6>
+         <p>{{ mascota.historial }}</p>
+        {% endfor %}
+      <br>
+      <button class="btn btn-light" type="button" onclick="goBack()">Volver</button>
+  </div>
+</div>
+{% endblock %}

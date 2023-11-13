@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Localidades{% endblock %}
+{% block titulo_principal %}Lista de Localidades{% endblock %}
+{% block principal %}
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>CP</th>
+                <th>Provincia</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        {% for localidad in localidades %}
+        <tr>
+            <td>{{ localidad.nombre }}</td>
+            <td>{{ localidad.cp }}</td>
+            <td>{{ localidad.provincia }}</td>
+            <td><a href="{% url 'modificar_localidad' localidad.id %}"><img src="{% static 'img/editar.png' %}" width="30" height="30"></a></td>
+            <td><a href="{% url 'eliminar_localidad' localidad.id %}"><img src="{% static 'img/basura.png' %}" width="30" height="30"></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<button type="submit" class="btn btn-light" onclick="window.location.href='{% url 'nueva_localidad' %}'">Añadir nueva localidad</button>
+<button class="btn btn-light" type="button" onclick="goBack()">Volver</button>
+{% endblock %}

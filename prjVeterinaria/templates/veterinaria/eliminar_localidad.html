@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}{% endblock %}
+{% block titulo_principal %}{% endblock %}
+{% block principal %}
+<form method="post" class="align-self-center">
+    {% csrf_token %}
+    <p>Esta seguro que desea eliminar la localidad {{ localidad.nombre }}?</p>
+    <button class="btn btn-light" type="button" onclick="goBack()">Volver</button>
+    <button type="submit" value="Confirmar" class="btn btn-light" >Borrar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titulo %}Sistema Veterinario{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Playpen|Sans:wght@700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiarys bg-warning text-light-emphasis d-flex mb-3">
+        <div class="me-auto p-2 ">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <img src="{% static 'img/logo.png' %}" width="100" height="85">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <a class="navbar-brand navbar-text"  href="/acerca_de"> Veterinaria<br>"Animaluchos"</a>
+                </div>
+            </div>
+        </div>
+        <div class="p-2">
+        <ul class="nav nav-tabs d-flex justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/acerca_de">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/clientes">Clientes</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="/localidades">Localidades</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="container">
+        <div>
+            <h3 class="text-center">{% block titulo_principal %}{% endblock %}</h3>
+            <br>
+            <h4 class="text-center">{% block titulo_secundario %}{% endblock %}</h4>
+            {% block principal %} {% endblock %}
+        </div>
+    </div>
+    <br>
+    <footer>
+        <small>&copy; Proyecto Administración Veterinaria v1.0</small>
+    </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <script>
+             const toastTrigger = document.getElementById('liveToastBtn')
+             const toastLiveExample = document.getElementById('liveToast')
+             if (toastTrigger) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+                toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show()
+                })
+            }
+        </script>
+        <script>
+            const offcanvasElementList = document.querySelectorAll('.offcanvas')
+            const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl))
+        </script>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <script>
+            const carousel = new bootstrap.Carousel('#myCarousel')
+        </script>
+    </div>
+</body>
+</html>

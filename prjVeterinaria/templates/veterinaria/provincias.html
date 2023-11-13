@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Provincias{% endblock %}
+{% block titulo_principal %}Lista de Provincias{% endblock %}
+{% block principal %}
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Pais</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        {% for provincia in provincias %}
+        <tr>
+            <td>{{ provincia.nombre }}</td>
+            <td>{{ provincia.pais }}</td>
+            <td><a href="{% url 'modificar_provincia' provincia.id %}"><img src="{% static 'img/editar.png' %}" width="30" height="30"></a></td>
+            <td><a href="{% url 'eliminar_provincia' provincia.id %}"><img src="{% static 'img/basura.png' %}" width="30" height="30"></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<button type="submit" class="btn btn-light" onclick="window.location.href='{% url 'nueva_provincia' %}'">Añadir nueva provincia</button>
+<button class="btn btn-light" type="button" onclick="goBack()">Volver</button>
+
+{% endblock %}
